@@ -1,4 +1,4 @@
-## This project makes use of a personilzed RIOT api key that has to be regenerated every 24hours, to get it to work i suggest aqcuiring a RIOT api key or asking for a live demo   
+## This project makes use of a personilzed RIOT api key that has to be regenerated every 24hours, to get it to work i suggest acquiring a RIOT api key or asking for a live demo   
 
 # LeagueStatTracker
 
