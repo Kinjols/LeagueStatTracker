@@ -16,6 +16,8 @@ export class SummonerCardComponent implements OnInit {
   summonerIconId:number;
   summonerIcon:string;
   summonerLP:number;
+  summonerLvl:number
+
   constructor(private API: APIService) { }
 
   ngOnInit() {
@@ -24,27 +26,33 @@ export class SummonerCardComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.putDataInCard();
-  }
+  } 
 
   putDataInCard(){
+    this.summonerLvl = this.searchedSummoner.summonerLevel;
+    this.sumonnerName = this.searchedSummoner.name 
+    this.summonerIconId = this.searchedSummoner.profileIconId;
+    this.summonerIcon = (  "https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/"+  this.summonerIconId + ".png")
+  
+    if(this.summonerLvl>30){
     this.API.getSummonerCreds(this.searchedSummoner.id).subscribe(
-      Response =>{
-        this.fillSummonerStatistics(Response[0])
-      }
-    )
-  }
+      Response =>{this.fillSummonerStatistics(Response[0])})
+    } else{
+      this.summonerTier="UNRANKED";
+      this.summonerRank="";
+      this.summonerLP = 0;
+    }
+    
+}
 
   fillSummonerStatistics(summonerStatistics){
-    console.log(summonerStatistics)
-    this.sumonnerName = summonerStatistics.summonerName 
+    console.log(this.searchedSummoner.summonerLevel)
+    
+    if(this.searchedSummoner.summonerLevel>30){
     this.summonerTier = summonerStatistics.tier 
     this.summonerRank = summonerStatistics.rank 
     this.summonerLP = summonerStatistics.leaguePoints
-    this.summonerIconId = this.searchedSummoner.profileIconId;
-
-    this.summonerIcon = (  "https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/"+  this.summonerIconId + ".png")
-
-    console.log(summonerStatistics.profileIconId)
+    }
   }
  
 
