@@ -1,0 +1,17 @@
+/* html, body {
+    font-family: 'Montserrat', sans-serif;
+} */
+.card{
+    border-radius: 15px;
+    box-shadow: 5px 10px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.p{
+    font-family: 'Montserrat', sans-serif;
+}
+
+img{
+    border-radius: 5px;
+}
+

@@ -4,7 +4,7 @@
   </p>
 
   <div class="col-sm" *ngIf="isClicked; else eventNotCLicked">
-    <app-summoner-card [(searchedSummonerId)]="summonerId"> </app-summoner-card>
+    <app-summoner-card [(searchedSummoner)]="summonerId"> </app-summoner-card>
   </div>
 
   <ng-template #eventNotCLicked>
