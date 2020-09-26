@@ -8,7 +8,7 @@ import { Observable, observable } from 'rxjs';
 })
 export class APIService {
 
-  key:string="?api_key=RGAPI-de32cf6f-4291-4795-991a-09f747fb67c5"
+  key:string="?api_key=RGAPI-952897f4-568a-4a01-a3e2-8d63e146cd35"
 
   constructor(private http: HttpClient) { }
 

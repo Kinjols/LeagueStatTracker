@@ -7,7 +7,8 @@ import  {APIService} from '../../Services/api.service'
   styleUrls: ['./body.component.css']
 })
 export class BodyComponent implements OnInit {
-  summonerId:string;
+  summonerId:any;
+  summoner:any;
   isClicked:boolean=false;
 
   constructor(private API: APIService) { }
@@ -27,15 +28,16 @@ export class BodyComponent implements OnInit {
      Response => {
       console.log(Response)
       this.summonerId=Response
-       this.giveData(Response.id)
+       this.giveData(Response)
        this.isClicked = true;
      }  
    )   
   }
 
-  giveData(name:string){
+  giveData(name:any){
     console.log(name)
-    this.summonerId=name
+    this.summonerId=name;
+    this.summoner=name;
   }
 
 }

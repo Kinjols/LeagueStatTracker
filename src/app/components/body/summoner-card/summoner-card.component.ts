@@ -7,13 +7,13 @@ import { APIService } from 'src/app/Services/api.service';
   styleUrls: ['./summoner-card.component.css']
 })
 export class SummonerCardComponent implements OnInit {
-  @Input() searchedSummonerId: string;
+  @Input() searchedSummonerId: any;
 
   sumonnerId:string;
   sumonnerName:string;
   summonerTier:string;
   summonerRank:string;
-  summonerIconId:any;
+  summonerIconId:number;
   summonerIcon:string;
   summonerLP:number;
   constructor(private API: APIService) { }
@@ -27,7 +27,7 @@ export class SummonerCardComponent implements OnInit {
   }
 
   putDataInCard(){
-    this.API.getSummonerCreds(this.searchedSummonerId).subscribe(
+    this.API.getSummonerCreds(this.searchedSummonerId.id).subscribe(
       Response =>{
         this.fillSummonerStatistics(Response[0])
       }
@@ -40,11 +40,11 @@ export class SummonerCardComponent implements OnInit {
     this.summonerTier = summonerStatistics.tier 
     this.summonerRank = summonerStatistics.rank 
     this.summonerLP = summonerStatistics.leaguePoints
-    
+    this.summonerIconId = this.searchedSummonerId.profileIconId;
 
-    this.summonerIconId = summonerStatistics.profileIconId;
+    this.summonerIcon = (  "https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/"+  this.summonerIconId + ".png")
+
     console.log(summonerStatistics.profileIconId)
-    this.summonerIcon = (  "https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/"+  1 + ".png")
   }
  
 
