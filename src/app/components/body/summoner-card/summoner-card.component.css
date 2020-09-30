@@ -1,11 +1,9 @@
-/* html, body {
-    font-family: 'Montserrat', sans-serif;
-} */
+
 .card{
+    margin: 0 auto;
     border-radius: 15px;
     box-shadow: 5px 10px;
     font-family: 'Montserrat', sans-serif;
-
 }
 .p{
     font-family: 'Montserrat', sans-serif;

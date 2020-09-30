@@ -46,8 +46,8 @@ export class SummonerCardComponent implements OnInit {
 }
 
   fillSummonerStatistics(summonerStatistics){
-    console.log(this.searchedSummoner.summonerLevel)
-    
+    console.log(this.searchedSummoner)
+    console.log(summonerStatistics)
     if(this.searchedSummoner.summonerLevel>30){
     this.summonerTier = summonerStatistics.tier 
     this.summonerRank = summonerStatistics.rank 
